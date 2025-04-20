@@ -6,7 +6,7 @@
 
 **A secure and gas-optimized smart contract system for managing donations and owner-controlled proposal-based withdrawals, designed with transparency and efficiency in mind.**
 
-**[Link to Your Live Demo (if applicable)]** | **[Link to Your Demo Video (Required)]**
+**https://www.loom.com/share/8e0799b5d6c5494385247c153c1b34d6?sid=dd3f8c07-4fe6-4ae1-b716-f75473374c5f**
 
 ---
 
