@@ -1,0 +1,27 @@
+{
+  "0": {
+    "proposalId": "0",
+    "recipientAddress": "0x46D8Ace1Be1275EB9C6aBB276EC775D85235F70E",
+    "description": "Donating to charity",
+    "evidenceCID": "",
+    "analysisTimestamp": "2025-04-20T09:39:43.983Z",
+    "addressAnalysis": {
+      "address": "0x46D8Ace1Be1275EB9C6aBB276EC775D85235F70E",
+      "riskScore": 27,
+      "flags": [],
+      "provider": "Placeholder Analysis Inc."
+    },
+    "descriptionAnalysis": {
+      "summary": "The request is extremely vague, offering no information about the specific charity, the intended use of funds, or any details to assess its legitimacy.",
+      "clarity_score": 10,
+      "legitimacy_score": 10,
+      "sentiment": "Neutral",
+      "flags": [
+        "Lack of specificity",
+        "Missing crucial details about the charity and its activities",
+        "High risk of fraud or misappropriation of funds",
+        "No information on impact or accountability"
+      ]
+    }
+  }
+}
