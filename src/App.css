@@ -1,172 +1,271 @@
-a.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 1rem;
-    background: #0085ff;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    z-index: 100;
-    transition: top 0.3s ease;
-    text-decoration: none;
-  }
-  a.skip-link:focus {
-    top: 1rem;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    background: #383d46;
-    font-family: 'Inter', sans-serif;
-    color: #e1e4e8;
-  }
-  
-  header {
-    position: sticky;
-    top: 0;
-    background: #2f333b;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    z-index: 50;
-  }
-  
-  header .container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    color: #0085ff;
-  }
-  
-  nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav li {
-    margin-left: 1.5rem;
-  }
-  
-  nav a {
-    color: #e1e4e8;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  nav a:hover {
-    color: #0085ff;
-  }
-  
-  nav input[type="search"] {
-    margin-left: 2rem;
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #4a505a;
-    background: #383d46;
-    color: #e1e4e8;
-  }
-  
-  .App {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #2f333b;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  }
-  
-  main {
-    outline: none;
-  }
-  
-  section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: #383d46;
-    border: 1px solid #4a505a;
-    border-radius: 8px;
-  }
-  
-  h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #4a505a;
-    padding-bottom: 0.5rem;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-  
-  input,
-  select {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #4a505a;
-    border-radius: 8px;
-    background: #2f333b;
-    color: #e1e4e8;
-    font-size: 1rem;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background: #0085ff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
-  }
-  
-  button:hover:not(:disabled) {
-    background: #006fcc;
-    transform: translateY(-1px);
-  }
-  
-  button:disabled {
-    background: #555c6a;
-    cursor: not-allowed;
-  }
-  
-  ul.items {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul.items li {
-    background: #383d46;
-    border: 1px solid #4a505a;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  li strong {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #e1e4e8;
-  }
-  
-  footer {
-    text-align: center;
-    font-size: 0.875rem;
-    color: #4a505a;
-    margin-top: 3rem;
-  }
+/* Reset */
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif; /* W3 uses Verdana */
+  line-height: 1.5;
+  background-color: #f1f1f1; /* Light grey background like W3 */
+  color: #000; /* Default black text */
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Main App Container */
+.App {
+  max-width: 100%; /* Allow full width usage */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f1f1f1; /* Ensure background covers */
+}
+
+/* --- Styling the NAV element to act as the HEADER + NAVBAR container --- */
+.app-navbar {
+  /* Remove sticky positioning if the combined height is large */
+  /* position: sticky; top: 0; z-index: 10; */
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  /* Use flexbox to stack title area and link area */
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* Remove padding from the main nav container */
+}
+
+/* --- Styling the BRAND area (Effectively the Main Header) --- */
+.navbar-brand {
+  background-color: #fff; /* White background for title area */
+  padding: 2.5rem 1rem; /* << Increased padding for height >> */
+  width: 100%;
+  display: flex; /* Use flex to center title */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling the main title link/text */
+.navbar-title {
+  font-size: 3em; /* << Made title significantly larger (adjust if too big/small) >> */
+  font-weight: bold;
+  text-decoration: none;
+  color: #000; /* Black text */
+  letter-spacing: 4px; /* Keep wide spacing */
+  text-transform: uppercase; /* Ensure uppercase */
+  text-align: center; /* Ensure text itself is centered */
+  transition: font-size 0.3s ease; /* Smooth resize */
+}
+.navbar-title:hover {
+   color: #555; /* Subtle hover */
+}
+
+/* --- Styling the LINKS area (Effectively the Sub-Navbar) --- */
+.navbar-links {
+  background-color: #f8f8f8; /* << Slightly off-white background for separation >> */
+  padding: 0.75rem 1rem; /* Padding for the links bar */
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the links horizontally */
+  align-items: center;
+  gap: 2rem; /* Space between links */
+  border-top: 1px solid #e0e0e0; /* << Line between title and links >> */
+  border-bottom: 1px solid #e0e0e0; /* << Optional line below links >> */
+}
+
+.navbar-links a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333; /* Darker grey for links */
+  font-size: 1rem; /* Readable size */
+  font-weight: 500;
+  text-transform: uppercase; /* Uppercase links */
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 4px; /* Optional: slight rounding */
+}
+
+.navbar-links a:hover {
+  color: #000;
+  background-color: #eee; /* Subtle background hover */
+}
+
+/* Style for the active link */
+.navbar-links a.active {
+    color: #4CAF50; /* Example: Green for active link */
+    font-weight: bold;
+    /* background-color: #e0e0e0; Optional background */
+}
+
+/* --- Main Page Content Container --- */
+.app-content {
+  width: 100%;
+  max-width: 1400px; /* Content still constrained */
+  margin: 2rem auto; /* << Adjusted top margin >> */
+  padding: 0 16px;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+/* --- Card Styling (Use previous W3-inspired style) --- */
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  border-radius: 0;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #000;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 16px;
+    font-size: 24px;
+    font-weight: 400;
+}
+/* Added specific class styling */
+.navbar-title {
+  font-size: 3em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem; /* << ADDED: Space below title >> */
+  transition: font-size 0.3s ease;
+}
+.wallet-status-card {
+    /* Add specific styles if needed */
+}
+.owner-actions-card {
+    /* Add specific styles if needed */
+    margin-top: 24px; /* Example: Add more space above owner actions */
+}
+.transfer-form {
+    /* Add specific styles if needed */
+}
+
+.card h3 { margin-top: 16px; margin-bottom: 16px; font-weight: 400; font-size: 18px;}
+.card h4 { margin-top: 16px; margin-bottom: 8px; font-weight: 400; font-size: 15px; text-transform: none; }
+
+/* --- Form Styling --- */
+form div { margin-bottom: 16px; }
+form label { display: block; margin-bottom: 8px; color: #000; font-weight: normal; font-size: 15px; }
+.input-field, textarea.input-field, select.input-field {
+  width: 100%;
+  padding: 8px; /* w3-input */
+  border: 1px solid #ccc; /* w3-border */
+  border-radius: 0; /* Sharp corners */
+  font-size: 15px; /* W3 default */
+  font-family: inherit; /* Use body font */
+  color: #000;
+  background-color: #fff;
+}
+textarea.input-field { resize: vertical; min-height: 80px; }
+.input-field:focus { border-color: #4CAF50; /* Example focus */ outline: none; }
+
+/* --- Button Styling --- */
+button {
+  background-color: #000; /* Default to w3-black */
+  color: white;
+  padding: 8px 16px; /* w3-padding */
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  /* text-transform: uppercase; Optional: W3 buttons often uppercase */
+}
+button:hover:not(:disabled) { background-color: #ccc; color: #000; } /* w3-hover-light-grey */
+button:disabled { background-color: #9e9e9e; color: #fff; cursor: not-allowed; } /* w3-disabled */
+
+/* Specific button overrides */
+.execute-button { background-color: #4CAF50; /* w3-green */ margin-top: 16px; }
+.execute-button:hover:not(:disabled) { background-color: #45a049; }
+
+/* --- Proposal Card Styling --- */
+.proposal-card {
+  border: 1px solid #ccc; /* w3-border */
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 0;
+  background-color: #fff;
+}
+.navbar-tagline {
+  font-size: 1.1em; /* << Adjust size as needed >> */
+  font-weight: 400; /* Lighter than title */
+  color: #555; /* Grey color */
+  margin: 0; /* Remove default paragraph margins */
+  padding: 0;
+  letter-spacing: 1px; /* Optional spacing */
+  text-transform: none; /* Normal case, not uppercase */
+  transition: font-size 0.3s ease;
+}
+.proposal-card.executed { border-left: 4px solid #9e9e9e; background-color: #f1f1f1; } /* w3-grey */
+.proposal-card.pending { border-left: 4px solid #ffc107; } /* w3-amber */
+.proposal-card p { margin: 8px 0; font-size: 15px; word-break: break-word; }
+.proposal-card strong { font-weight: bold; }
+.ai-analysis { margin-top: 16px; padding-top: 16px; border-top: 1px solid #f1f1f1; font-size: 14px; }
+.ai-analysis p { margin: 4px 0; }
+.ai-analysis h4 { margin-top: 0; margin-bottom: 8px; font-size: 14px; font-weight: bold; text-transform: uppercase; }
+
+/* --- Utility Classes --- */
+.address { font-family: monospace; font-size: 14px; color: #000; word-break: break-all; background-color: #f1f1f1; padding: 2px 4px; display: inline-block;}
+.error-message { color: #fff; background-color: #f44336; border: none; padding: 8px 16px; margin: 16px 0; } /* w3-red */
+.tx-link { margin-top: 16px; font-size: 14px; text-align: center; }
+.tx-link a { color: #000; }
+.tx-link a:hover { color: #4CAF50; }
+
+/* --- Footer Styling --- */
+.app-footer {
+  background-color: #000; /* w3-black */
+  color: #fff;
+  padding: 32px 0; /* w3-padding-32 */
+  margin-top: 32px; /* Spacing above footer */
+  /* Remove top border */
+  border-top: none;
+}
+.footer-content { max-width: 1400px; margin: 0 auto; text-align: center; font-size: 15px; }
+.footer-logos { margin-top: 16px; display: flex; justify-content: center; align-items: center; gap: 2rem; }
+.footer-logos p { margin: 0 1rem 0 0; }
+.footer-logo { height: 30px; width: auto; vertical-align: middle; filter: brightness(0) invert(1); } /* Make logos white */
+
+
+/* --- Responsiveness --- */
+
+/* Medium Screens */
+@media (max-width: 1024px) {
+  .navbar-brand { padding: 2rem 1rem; }
+  .navbar-title { font-size: 2.5em; letter-spacing: 3px; }
+  .navbar-links { padding: 0.6rem 1rem; gap: 1.5rem; }
+  .navbar-links a { font-size: 0.9rem; }
+  .app-content { margin: 1.5rem auto; padding: 0 1rem; }
+  .footer-logos { gap: 1.5rem; }
+  .footer-logo { height: 28px; }
+}
+
+/* Small Screens (Tablets) */
+@media (max-width: 768px) {
+  .navbar-brand { padding: 1.5rem 1rem; }
+  .navbar-title { font-size: 2em; letter-spacing: 2px; }
+  .navbar-links { padding: 0.5rem 1rem; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .navbar-links a { font-size: 0.85rem; padding: 6px 12px; }
+  .app-content { margin: 1rem auto; padding: 0 8px; }
+  .card { padding: 16px; }
+  .card h2 { font-size: 18px; }
+  button, .input-field, textarea.input-field, select.input-field { font-size: 14px; }
+  .proposal-card p { font-size: 14px; }
+  .footer-logos { gap: 1.5rem; }
+  .footer-logo { height: 25px; }
+}
+
+/* Extra Small Screens (Phones) */
+@media (max-width: 480px) {
+    .navbar-brand { padding: 1rem 0.5rem; }
+    .navbar-title { font-size: 1.5em; letter-spacing: 1.5px; }
+    .navbar-links { padding: 0.4rem 0.5rem; gap: 0.5rem; }
+    .navbar-links a { font-size: 0.8rem; padding: 5px 8px; }
+    .footer-logos { flex-direction: column; gap: 1rem; } /* Stack logos */
+    .footer-logo { height: 25px; }
+    .card h2 { font-size: 16px; }
+    .proposal-card p { font-size: 13px; }
+    .address { font-size: 12px; }
+}
